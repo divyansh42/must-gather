@@ -63,7 +63,7 @@ jobs:
       #     registry: ${{ env.IMAGE_REGISTRY }}
 
       - name: Build
-        uses: redhat-actions/buildah-build@main
+        uses: divyansh42/buildah-build@manifest-fix
         with:
           tags: ${{ steps.prep.outputs.tags }}
           containerfiles: ./Dockerfile
