@@ -63,14 +63,14 @@ jobs:
       #     registry: ${{ env.IMAGE_REGISTRY }}
 
       - name: Build
-        uses: redhat-actions/buildah-build@main
+        uses: redhat-actions/buildah-build@v1
         with:
           tags: ${{ steps.prep.outputs.tags }}
           containerfiles: ./Dockerfile
           platforms: linux/amd64,linux/ppc64le,linux/s390x
 
       - name: Push
-        uses: redhat-actions/push-to-registry@main
+        uses: redhat-actions/push-to-registry@v1
         with:
           tags: ${{ steps.prep.outputs.tags }}
           username: ${{ secrets.QUAY_REGISTRY_USERNAME }}
@@ -85,4 +85,4 @@ jobs:
       #     file: ./Dockerfile
       #     platforms: linux/amd64,linux/ppc64le,linux/s390x
       #     push: ${{ github.event_name != 'pull_request' }}
-      #     tags: ${{ steps.prep.outputs.tags }} 
+      #     tags: ${{ steps.prep.outputs.tags }}
